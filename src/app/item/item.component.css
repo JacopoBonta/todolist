@@ -1,0 +1,12 @@
+.borderless {
+    border: none;
+}
+
+.borderless:focus {
+    outline: none;
+}
+
+textarea {
+  resize: none;
+  overflow-y: hidden;
+}

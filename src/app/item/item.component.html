@@ -1,0 +1,33 @@
+<div class="row">
+    <div class="col-sm-1 m-auto text-center">
+        <div class="form-checkbox">
+            <input type="checkbox" class="form-check-ipnut position-static" [(ngModel)]="data.isCompleted" (change)="checkboxHandler()">
+        </div>
+    </div>
+    <div class="col-sm-9">
+        <div class="row">
+            <div class="col-sm-12">
+                <input class="h4 borderless w-100" style="height: 1.8em;" type="text" [(ngModel)]="data.title" (input)="ipnutHandler()">                
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-10">
+                <textarea rows="3"
+                        class="borderless w-100"
+                        type="text" [(ngModel)]="data.description"
+                        maxlength="120"
+                        placeholder="Description"
+                        (input)="ipnutHandler()"
+                        (focus)="hideCounter = false"
+                        (blur)="hideCounter = true">
+                </textarea>
+            </div>
+            <div class="col-sm-2">
+                <small [hidden]="hideCounter" [ngClass]="data.description.length > 100 ? 'text-danger' : data.description.length < 60 ? 'text-success' : 'text-warning'">{{ data.description.length }}/120</small>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-2 m-auto text-center">
+        <a href='#' class="btn btn-outline-danger" (click)="remove()">Remove</a>
+    </div>
+</div>
