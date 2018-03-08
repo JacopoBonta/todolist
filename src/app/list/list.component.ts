@@ -7,9 +7,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
-  title: string = ''
-  body: string = ''
-
   list: TodoItem[] = []
 
   constructor() {
@@ -24,14 +21,9 @@ export class ListComponent implements OnInit {
   }
 
   // crea un nuovo oggetto TodoItem e lo aggiunge alla lista
-  addItem() {
-    if (!this.title || !this.body) {
-      return
-    }
-    let newTodo = new TodoItem(this.title, this.body)
-    this.list.unshift(newTodo)
-    this.title = ''
-    this.body = ''
+  addItem(todo: TodoItem) {
+    console.log("TODO", todo)
+    this.list.unshift(todo)
     this.saveList()
   }
 
