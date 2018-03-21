@@ -1,15 +1,15 @@
 <div class="row justify-content-between">
-  <div class="col-sm-4">
+  <div class="col-md-4">
     <!-- new todo  -->
     <app-new-item (created)="updateList()"></app-new-item>
   </div>
-  <div class="col-sm-6">
+  <div class="col-md-6">
     <!-- todo list -->
     <div class="alert alert-info text-center" role="alert" *ngIf="list.length === 0">The list is empty</div>
-    <ul class="list-group">
-      <li class="list-group-item" *ngFor="let todo of list">
-        <app-item [data]="todo" (deleted)="updateList()" (updated)="updateList()"></app-item>
-      </li>
-    </ul>
+    <div class="row">
+      <div class="col-md-4 mb-md-3" *ngFor="let todo of list">
+          <app-item [data]="todo" (deleted)="updateList()" (updated)="updateList()"></app-item>
+      </div>
+    </div>
   </div>
 </div>

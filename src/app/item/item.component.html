@@ -1,40 +1,13 @@
-<div class="row">
-    <div class="col-sm-1 m-auto text-center">
-        <div class="form-checkbox">
-            <input type="checkbox" class="form-check-ipnut position-static" [(ngModel)]="data.isCompleted" (change)="updateItem()">
-        </div>
+<div class="card" style="max-height: 19em; overflow: hidden;">
+    <div class="card-header">
+        <h4 class="card-title">{{ data.title }}</h4>
+        <small class="fa fa-trash" style="color: Tomato;" (click)="removeItem()"></small>
     </div>
-    <div class="col-sm-9">
-        <div class="row">
-            <div class="col-sm-12">
-                <!-- <input class="h4 borderless w-100"
-                        style="height: 1.8em;"
-                        type="text"
-                        [(ngModel)]="data.title"
-                        (input)="updateItem()"
-                        autocomplete="false">                 -->
-                        <h4>{{ data.title }}</h4>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-12">
-                <!-- <textarea rows="3"
-                        class="borderless w-100"
-                        type="text" [(ngModel)]="data.description"
-                        maxlength="120"
-                        placeholder="Description"
-                        (keyup)="updateItem()"
-                        (focus)="counterIsHidden = false"
-                        (blur)="counterIsHidden = true">
-                </textarea> -->
-                <p>{{ data.description }}</p>
-            </div>
-            <!-- <div class="col-sm-2">
-                <small [hidden]="counterIsHidden" [ngClass]="data.description.length > 100 ? 'text-danger' : data.description.length < 60 ? 'text-success' : 'text-warning'">{{ data.description.length }}/120</small>
-            </div> -->
-        </div>
-    </div>
-    <div class="col-sm-2 m-auto text-center">
-        <a href='#' class="btn btn-outline-danger" (click)="removeItem()"><i class="fa fa-times"></i></a>
+    <div class="card-body">
+        <p class="card-text">{{ data.description }}</p>
     </div>
 </div>
+<!-- <div class="form-checkbox">
+    <input type="checkbox" class="form-check-ipnut position-static" [(ngModel)]="data.isCompleted" (change)="updateItem()">
+</div> -->
+<!--  -->
