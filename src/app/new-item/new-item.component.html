@@ -1,8 +1,6 @@
 <div class="row">
   <div class="col-sm-6 offset-sm-3">
-    <div class="card">
-      <h2 class="card-header">New</h2>
-      <div class="card-block">
+      <h2 class="">New</h2>
         <form #itemForm="ngForm" id="itemForm" class="form-group" (ngSubmit)="createItem(itemForm)">
           <div class="form-group">
             <label for="title">Title</label>
@@ -12,9 +10,7 @@
             <label for="description">Description</label>
             <input type="text" name="body" id="description" class="form-control form-control-lg" ngModel placeholder="Description...">
           </div>
-          <button [disabled]="itemForm.invalid" form="itemForm" class="btn btn-outline-primary float-right">create new</button>
+          <button [disabled]="itemForm.invalid" form="itemForm" class="btn btn-outline-primary float-right"><i class="fa fa-plus"></i></button>
         </form>
-      </div>
-    </div>
   </div>
 </div>

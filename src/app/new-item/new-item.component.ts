@@ -1,3 +1,4 @@
+import { StorageService } from './../storage.service';
 import { TodoItem } from './../TodoItem';
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
@@ -11,15 +12,15 @@ export class NewItemComponent implements OnInit {
   @Output()
   created: EventEmitter<TodoItem> = new EventEmitter<TodoItem>()
 
-  constructor() { }
+  constructor(private storage: StorageService) { }
 
   ngOnInit() {
   }
 
   createItem(form: NgForm) {
-    let newTodo = new TodoItem(form.value.title, form.value.body)
-    this.created.emit(newTodo)
+    const newItem = new TodoItem(this.storage.getNextId(), form.value.title, form.value.body)
+    this.storage.insert(newItem)
+    this.created.emit()
     form.reset()
   }
-
 }

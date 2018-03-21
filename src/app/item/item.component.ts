@@ -1,3 +1,4 @@
+import { StorageService } from './../storage.service';
 import { FormsModule } from '@angular/forms';
 import { TodoItem } from './../TodoItem';
 import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
@@ -11,31 +12,25 @@ import { NgClass } from '@angular/common';
 export class ItemComponent implements OnInit {
 
   @Input() data: TodoItem
-  @Output() delete: EventEmitter<TodoItem> = new EventEmitter()
-  @Output() save: EventEmitter<null> = new EventEmitter()
-  @Output() checked: EventEmitter<null> = new EventEmitter()
+  @Output() deleted: EventEmitter<TodoItem> = new EventEmitter()
+  @Output() updated: EventEmitter<TodoItem> = new EventEmitter()
 
-  hideCounter: boolean = true
+  counterIsHidden: boolean = true
 
-  constructor() { }
+  constructor(private storage: StorageService) { }
 
   ngOnInit() {
   }
 
-  // emette l'evento delete di app-item
-  remove() {
-    this.delete.emit(this.data)
+  // rimuove l'elemento e notifica la lista
+  removeItem() {
+    this.storage.delete(this.data.id)
+    this.deleted.emit(this.data)
   }
 
-  // funzione che viene chiamata qunado viene sputata la checkbox
-  // emette l'evneto checked di app-item
-  checkboxHandler() {
-    this.checked.emit()
-  }
-
-  // funzione che viene chiamata qunado un elemento di ipnut viene modificato
-  // emette l'evento save di app-item
-  ipnutHandler() {
-    this.save.emit()
+  // aggiorna l'elemento e notifica la lista
+  updateItem() {
+    this.storage.update(this.data)
+    this.updated.emit(this.data)
   }
 }
