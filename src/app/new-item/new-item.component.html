@@ -1,16 +1,12 @@
-<div class="row">
-  <div class="col-sm-6 offset-sm-3">
-      <h2 class="">New</h2>
-        <form #itemForm="ngForm" id="itemForm" class="form-group" (ngSubmit)="createItem(itemForm)">
-          <div class="form-group">
-            <label for="title">Title</label>
-            <input type="text" name="title" id="title" class="form-control form-control-lg" ngModel placeholder="Title" required>
-          </div>
-          <div class="form-group">
-            <label for="description">Description</label>
-            <input type="text" name="body" id="description" class="form-control form-control-lg" ngModel placeholder="Description...">
-          </div>
-          <button [disabled]="itemForm.invalid" form="itemForm" class="btn btn-outline-primary float-right"><i class="fa fa-plus"></i></button>
-        </form>
+<h2 class="">New</h2>
+<form #itemForm="ngForm" id="itemForm" class="form-group" (ngSubmit)="createItem(itemForm)">
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input type="text" name="title" id="title" class="form-control form-control-lg" ngModel placeholder="Title" required>
   </div>
-</div>
+  <div class="form-group">
+    <label for="description">Description</label>
+    <input type="text" name="body" id="description" class="form-control form-control-lg" ngModel placeholder="Description...">
+  </div>
+  <button [disabled]="itemForm.invalid" form="itemForm" class="btn btn-outline-primary float-right"><i class="fa fa-plus"></i></button>
+</form>
