@@ -17,7 +17,7 @@ export class ListComponent implements OnInit {
 
   ngOnInit() {
   }
-  
+
   // aggiorna la lista corrente
   updateList() {
     this.list = this.storage.getTodoItems()

@@ -15,7 +15,7 @@ export class ItemComponent implements OnInit {
   @Output() deleted: EventEmitter<TodoItem> = new EventEmitter()
   @Output() updated: EventEmitter<TodoItem> = new EventEmitter()
 
-  counterIsHidden: boolean = true
+  counterIsHidden = true
 
   constructor(private storage: StorageService) { }
 

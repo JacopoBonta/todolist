@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { TodoItem } from './TodoItem';
+import { Injectable } from '@angular/core'
+import { TodoItem } from './TodoItem'
 import * as _ from 'underscore'
 
 @Injectable()
@@ -13,31 +13,31 @@ export class StorageService {
     if (items.length <= 0) {
       return 0
     }
-    let maxId = _.max(items, (item) => { return item.id }).id
+    let maxId = _.max(items, (item) => item.id).id
     return ++maxId
   }
 
   // legge dal local storage e ritorna un array di todo
   getTodoItems(): TodoItem[] {
-    const items = JSON.parse(localStorage.getItem("todos"))
+    const items = JSON.parse(localStorage.getItem('todos'))
     return items || []
   }
 
   // salva l'array di todo nel local storage
   setTodoItems(items: TodoItem[]) {
-    localStorage.setItem("todos", JSON.stringify(items))
+    localStorage.setItem('todos', JSON.stringify(items))
   }
 
   // delete a todo
   delete(id: number) {
-    let items = this.getTodoItems()
-    const index = _.findIndex(items, (item) => { return item.id === id })
+    const items = this.getTodoItems()
+    const index = _.findIndex(items, (item) => item.id === id)
     if (index > -1) {
       items.splice(index, 1)
       this.setTodoItems(items)
     }
   }
-  
+
   // add a new item
   insert(item: TodoItem) {
     const items = this.getTodoItems()
@@ -48,7 +48,7 @@ export class StorageService {
   // update an existing todo item
   update(item: TodoItem) {
     const items = this.getTodoItems()
-    const index = _.findIndex(items, (currentItem) => { return currentItem.id === item.id })
+    const index = _.findIndex(items, (currentItem) => currentItem.id === item.id)
     items[index].title = item.title
     items[index].description = item.description
     items[index].isCompleted = item.isCompleted

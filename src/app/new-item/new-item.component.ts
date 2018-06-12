@@ -1,7 +1,7 @@
-import { StorageService } from './../storage.service';
-import { TodoItem } from './../TodoItem';
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { StorageService } from './../storage.service'
+import { TodoItem } from './../TodoItem'
+import { Component, OnInit, EventEmitter, Output } from '@angular/core'
+import { NgForm } from '@angular/forms'
 
 @Component({
   selector: 'app-new-item',
